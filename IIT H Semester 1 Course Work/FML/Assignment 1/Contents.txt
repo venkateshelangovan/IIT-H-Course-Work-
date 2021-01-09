@@ -1,0 +1,7 @@
+FML (AI5000) Assignment Contents 
+Arkadipta De (AI20MTECH14002)
+Venkatesh E (AI20MTECH14005)
+
+1. Assignment - 1 Report - Contains Answers and Report to Question 1,2,3,4
+2. Folder Q3 - Contains Python Code, Jupyter Notebook, Offline HTML File for varifying result and Read Me for Question 3 
+3. Folder Q4 - Contains Python Code, Jupyter Notebook, Offline HTML File for varifying result and Read Me for Question 4 
