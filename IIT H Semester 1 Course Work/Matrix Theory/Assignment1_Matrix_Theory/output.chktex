@@ -1,0 +1,8 @@
+Final_ASSIGNMENT.tex:110:58: Error: `]' expected, found `}'. \providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}  
+Final_ASSIGNMENT.tex:111:57: Error: `}' expected, found `]'. \providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}  
+Final_ASSIGNMENT.tex:113:55: Error: `)' expected, found `}'. \providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}  
+Final_ASSIGNMENT.tex:114:54: Error: `}' expected, found `)'. \providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}  
+Final_ASSIGNMENT.tex:313:66: Error: `}' expected, found `)'.     =cos^-1\left(\frac{[1*3+(-2)*(-2)+3*1]}{(\sqrt{1^2+(-2)^2+3^2)}*(\sqrt{3^2+(-2)^2+1^2)}}\right)  
+Final_ASSIGNMENT.tex:313:67: Error: `)' expected, found `}'.     =cos^-1\left(\frac{[1*3+(-2)*(-2)+3*1]}{(\sqrt{1^2+(-2)^2+3^2)}*(\sqrt{3^2+(-2)^2+1^2)}}\right)  
+Final_ASSIGNMENT.tex:313:90: Error: `}' expected, found `)'.     =cos^-1\left(\frac{[1*3+(-2)*(-2)+3*1]}{(\sqrt{1^2+(-2)^2+3^2)}*(\sqrt{3^2+(-2)^2+1^2)}}\right)  
+Final_ASSIGNMENT.tex:313:91: Error: `)' expected, found `}'.     =cos^-1\left(\frac{[1*3+(-2)*(-2)+3*1]}{(\sqrt{1^2+(-2)^2+3^2)}*(\sqrt{3^2+(-2)^2+1^2)}}\right)  

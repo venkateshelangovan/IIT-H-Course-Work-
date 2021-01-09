@@ -1,0 +1,376 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{tkz-euclide} 
+\usepackage{textcomp}
+\usepackage{standalone}
+\usetikzlibrary{calc}
+
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{cleveref}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 10}
+\author{Venkatesh E\\AI20MTECH14005}
+\maketitle
+\newpage
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{abstract}
+This document explains the concept of finding the closest points on the lines using SVD provided the given lines are not intersecting each other
+\end{abstract}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/venkateshelangovan/IIT-Hyderabad-Assignments/tree/master/Assignment10_Matrix_Theory
+\end{lstlisting}
+\section{Problem}
+Check whether the given line equations intersect. If they didn't intersect find the closest points on the lines 
+\begin{align}
+L_1 & : & \vec{x}=\myvec{2\\-5\\1}+\lambda_1\myvec{3\\2\\6}\\
+L_2 & : & \vec{x}=\myvec{7\\-6\\0}+\lambda_2\myvec{1\\2\\2}
+\end{align}
+\section{Solution}
+Given 
+\begin{align}
+L_1 &: & \vec{x}=\myvec{2\\-5\\1}+\lambda_1\myvec{3\\2\\6}\label{l1}\\
+L_2 &: & \vec{x}=\myvec{7\\-6\\0}+\lambda_2\myvec{1\\2\\2}\label{l2}
+\end{align}
+The above equations \eqref{l1}, \eqref{l2} are in the form
+\begin{align}
+L_1 &: & \vec{x}=\vec{a_1}+\lambda_1\vec{b_1}\label{f1}\\
+L_2 &: & \vec{x}=\vec{a_2}+\lambda_2\vec{b_2}\label{l2}
+\end{align}
+Here , 
+\begin{align}
+\vec{a_1}&=\myvec{2\\-5\\1}\label{a1}&
+\vec{a_2}=\myvec{7\\-6\\0}\label{a2}\\
+\vec{b_1}&=\myvec{3\\2\\6}\label{b1}&
+\vec{b_2}=\myvec{1\\2\\2}\label{b2}
+\end{align}
+
+Now let us assume the lines $L_1$ and $L_2$ are intersecting at a point. Therefore , 
+\begin{align}
+\myvec{2\\-5\\1}+\lambda_1\myvec{3\\2\\6}&=\myvec{7\\-6\\0}+\lambda_2\myvec{1\\2\\2}\\
+\lambda_1\myvec{3\\2\\6}+\lambda_2\myvec{-1\\-2\\-2}&=\myvec{5\\-1\\-1}\\
+\myvec{3 & -1\\2 & -2\\6 & -2}\myvec{\lambda_1 \\ \lambda_2}&=\myvec{5\\-1\\-1}\label{eql1l2}
+\end{align}
+The augumented matrix of \eqref{eql1l2} is given by 
+\begin{align}
+    &\myvec{3 & -1 &\vrule & 5 \\ 2 & -2 & \vrule& -1\\ 6 & -2 &\vrule & -1}\label{eqaug}
+\end{align}
+\begin{align}
+&\myvec{3 & -1 &\vrule & 5 \\ 2 & -2 & \vrule& -1\\ 6 & -2 &\vrule & -1}&\xleftrightarrow{R_2=R_2-\frac{2}{3}R_1}&\myvec{3 & -1 &\vrule & 5 \\ 0 & -\frac{4}{3} & \vrule& -\frac{13}{3}\\ 6 & -2 &\vrule & -1}\\
+&\myvec{3 & -1 &\vrule & 5 \\ 0 & -\frac{4}{3} & \vrule& -\frac{13}{3}\\ 6 & -2 &\vrule & -1}&\xleftrightarrow{R_3=R_3-2R_1}&\myvec{3 & -1 &\vrule & 5 \\ 0 & -\frac{4}{3} & \vrule& -\frac{13}{3}\\ 0 & 0 &\vrule & -11}\label{augfin}
+\end{align}
+Since the rank of augmented matrix will be 3. We can say that lines do not intersect.Hence our assumptions is wrong
+
+Equation \eqref{eql1l2} can be expressed as 
+\begin{align}
+    \vec{M}\vec{x}&=\vec{b}\label{mx=b}
+\end{align}
+By singular value decomposition $\vec{M}$
+can be expressed as 
+\begin{align}
+    \vec{M}&=\vec{U}\vec{S}\vec{V}^T\label{main}
+\end{align}
+Where the columns of $\vec{V}$ are the eigenvectors of $\vec{M}^T\vec{M}$ ,the columns of $\vec{U}$ are the eigenvectors of $\vec{M}\vec{M}^T$ and $\vec{S}$ is diagonal matrix of singular value of eigenvalues of $\vec{M}^T\vec{M}$.
+\begin{align}
+\vec{M}^T\vec{M}&=\myvec{49&-19\\-19&9}\label{2.0.6}\\
+\vec{M}\vec{M}^T&=\myvec{10&8&20\\8&8&16\\20&16&40}
+\end{align}
+
+\subsection{To get $\vec{V}$ and $\vec{S}$ }
+The characteristic equation of $\vec{M}^T\vec{M}$ is obtained by evaluating the determinant 
+
+\begin{align}
+   \begin{array}{|cc|}
+49-\lambda & -19 \\ -19 & 9-\lambda
+\end{array}&=0\\
+\implies \lambda^2-58\lambda+80&=0\label{eqroots}
+\end{align}
+
+The eigenvalues are the roots of equation \ref{eqroots} is given by 
+\begin{align}
+    \lambda_{11}&=29+\sqrt{761}\label{eqeig1}\\
+    \lambda_{12}&=29-\sqrt{761}\label{eqeig2}
+\end{align}
+The eigen vectors comes out to be , 
+\begin{align}
+    \vec{u_{11}}=\myvec{\frac{-20-\sqrt{761}}{19}\\1},
+    \vec{u_{12}}=\myvec{\frac{-20+\sqrt{761}}{19}\\1}
+\end{align}
+Normalising the eigen vectors, 
+\begin{align}
+    l_{11}&=\sqrt{\left(\frac{-20-\sqrt{761}}{19}\right)^2+1^2}\\
+    \implies l_{11}&=\frac{\sqrt{1522+40\sqrt{761}}}{19}
+\end{align}
+\begin{align}
+    \vec{u_{11}}&=\myvec{\frac{-20-\sqrt{761}}{\sqrt{1522+40\sqrt{761}}}\\\frac{19}{\sqrt{1522+40\sqrt{761}}}}
+\end{align}
+\begin{align}
+    l_{12}&=\sqrt{\left(\frac{-20+\sqrt{761}}{19}\right)^2+1^2}\\
+    \implies l_{12}&=\frac{\sqrt{1522-40\sqrt{761}}}{19}
+\end{align}
+\begin{align}
+    \vec{u_{12}}&=\myvec{\frac{-20+\sqrt{761}}{\sqrt{1522-40\sqrt{761}}}\\\frac{19}{\sqrt{1522-40\sqrt{761}}}}
+\end{align}
+\begin{align}
+    \vec{V}=\myvec{\frac{-20-\sqrt{761}}{\sqrt{1522+40\sqrt{761}}} & \frac{-20+\sqrt{761}}{\sqrt{1522-40\sqrt{761}}}\\\frac{19}{\sqrt{1522+40\sqrt{761}}} & \frac{19}{\sqrt{1522-40\sqrt{761}}}}
+\end{align}
+$\vec{S}$ is given by 
+\begin{align}
+    \vec{S}&=\myvec{\sqrt{29+\sqrt{761}}&0\\0&\sqrt{29-\sqrt{761}}\\0&0}
+\end{align}
+
+\subsection{To get $\vec{U}$ }
+The characteristic equation of $\vec{M}\vec{M}^T$ is obtained by evaluating the determinant 
+\begin{align}
+   \begin{array}{|ccc|}
+10-\lambda & 8 & 20 \\ 8 & 8-\lambda & 16\\20 & 16 & 40-\lambda
+\end{array}&=0\\
+\implies \lambda^3-58\lambda^2+80\lambda&=0\label{equroots}
+\end{align}
+The eigenvalues are the roots of equation \ref{equroots} is given by 
+\begin{align}
+    \lambda_{21}&=29+\sqrt{761}\label{eqeig1}\\
+    \lambda_{22}&=29-\sqrt{761}\label{eqeig2}\\
+    \lambda_{23}&=0
+\end{align}
+
+The eigen vectors comes out to be , 
+\begin{align}
+    \vec{u_{21}}=\myvec{\frac{-1}{2}\\\frac{-\sqrt{761}+21}{16}\\-1},
+    \vec{u_{22}}=\myvec{\frac{1}{2}\\\frac{-\sqrt{761}-21}{16}\\1},
+    \vec{u_{23}}=\myvec{-2 \\ 0 \\ 1}
+\end{align}
+Normalising the eigen vectors, 
+\begin{align}
+    l_{21}&=\sqrt{\left(\frac{-1}{2}\right)^2+\left(\frac{21-\sqrt{761}}{16}\right)^2+(-1)^2}\\
+    \implies l_{21}&=\frac{\sqrt{1522-42\sqrt{761}}}{16}
+\end{align}
+\begin{align}
+    \vec{u_{21}}&=\myvec{\frac{-8}{\sqrt{1522-42\sqrt{761}}}\\\frac{21-\sqrt{761}}{\sqrt{1522-42\sqrt{761}}}\\\frac{-16}{\sqrt{1522-42\sqrt{761}}}}
+\end{align}
+\begin{align}
+    l_{22}&=\sqrt{\left(\frac{1}{2}\right)^2+\left(\frac{-21-\sqrt{761}}{16}\right)^2+1^2}\\
+    \implies l_{22}&=\frac{\sqrt{1522+42\sqrt{761}}}{16}
+\end{align}
+\begin{align}
+    \vec{u_{22}}&=\myvec{\frac{8}{\sqrt{1522+42\sqrt{761}}}\\\frac{-21-\sqrt{761}}{\sqrt{1522+42\sqrt{761}}}\\\frac{16}{\sqrt{1522+42\sqrt{761}}}}
+\end{align}
+\begin{align}
+    l_{23}=\sqrt{(-2)^2+1^2}=\sqrt{5}
+\end{align}
+\begin{align}
+    \vec{u_{23}}=\myvec{\frac{-2}{\sqrt{5}}\\0\\\frac{1}{\sqrt{5}}}
+\end{align}
+\begin{align}
+    \vec{U}=\myvec{\frac{-8}{\sqrt{1522-42\sqrt{761}}} & \frac{8}{\sqrt{1522+42\sqrt{761}}}&\frac{-2}{\sqrt{5}} &\\ \frac{21-\sqrt{761}}{\sqrt{1522-42\sqrt{761}}} & \frac{-21-\sqrt{761}}{\sqrt{1522+42\sqrt{761}}}&  0 \\
+   \frac{-16}{\sqrt{1522-42\sqrt{761}}} & \frac{16}{\sqrt{1522+42\sqrt{761}}} &   \frac{1}{\sqrt{5}}}
+\end{align}
+
+\subsection{To get $\vec{x}$ }
+From equation \eqref{main} we rewrite $\vec{M}$ as follows,
+\begin{align}
+\begin{multlined}
+\myvec{3&-1\\2&-2\\6&-2}=
+\myvec{\frac{-8}{\sqrt{1522-42\sqrt{761}}} & \frac{8}{\sqrt{1522+42\sqrt{761}}}&\frac{-2}{\sqrt{5}} \\ \frac{21-\sqrt{761}}{\sqrt{1522-42\sqrt{761}}} & \frac{-21-\sqrt{761}}{\sqrt{1522+42\sqrt{761}}}&  0 \\
+   \frac{-16}{\sqrt{1522-42\sqrt{761}}} & \frac{16}{\sqrt{1522+42\sqrt{761}}} &   \frac{1}{\sqrt{5}}}\\&\myvec{\sqrt{29+\sqrt{761}}&0\\0&\sqrt{29-\sqrt{761}}\\0&0}\\&\myvec{\frac{-20-\sqrt{761}}{\sqrt{1522+40\sqrt{761}}} & \frac{-20+\sqrt{761}}{\sqrt{1522-40\sqrt{761}}}\\\frac{19}{\sqrt{1522+40\sqrt{761}}} & \frac{19}{\sqrt{1522-40\sqrt{761}}}}^T
+\end{multlined}
+\end{align}
+By substituting the equation \eqref{main} in equation \eqref{mx=b} we get 
+\begin{align}
+\vec{U}\vec{S}\vec{V}^T\vec{x} & = \vec{b}\\
+\implies\vec{x} &= \vec{V}\vec{S_+}\vec{U^T}\vec{b}\label{eqX}
+\end{align}
+Where $\vec{S_+}$ is Moore-Penrose Pseudo-Inverse of $\vec{S}$
+
+\begin{align}
+\vec{S_+}=\myvec{\frac{1}{\sqrt{29+\sqrt{761}}}&0&0\\0&\frac{1}{\sqrt{29-\sqrt{761}}}&0}
+\end{align}
+From \eqref{eqX} we get,
+\begin{align}
+\vec{U}^T\vec{b}&=\myvec{\frac{\sqrt{761}-45}{\sqrt{1522-42\sqrt{761}}}\\ \frac{45+\sqrt{761}}{\sqrt{1522+42\sqrt{761}}}\\ -\frac{11}{\sqrt{5}}}\\
+\vec{S_+}\vec{U}^T\vec{b}&=\myvec{\frac{761\sqrt{15}-761-45\sqrt{11415}+45\sqrt{761}}{10654}\\ \frac{45\sqrt{11415}+45\sqrt{761}+761\sqrt{15}+761}{10654}}\\
+\vec{x} = \vec{V}\vec{S_+}\vec{U}^T\vec{b} &= \myvec{\frac{11}{20}\\\frac{21}{20}}\label{eqXSol1}
+\end{align}
+\subsection{Verification of $\vec{x}$}
+
+Verifying the solution of \eqref{eqXSol1} using,
+\begin{align}
+\vec{M}^T\vec{M}\vec{x} = \vec{M}^T\vec{b}\label{eqVerify}
+\end{align}
+Evaluating the R.H.S in \eqref{eqVerify} we get,
+\begin{align}
+\vec{M}^T\vec{M}\vec{x} &= \myvec{7\\\-1}\\
+\implies\myvec{49&-19\\-19&9}\vec{x} &= \myvec{7\\-1}\label{eqMateq}
+\end{align}
+Solving the augmented matrix of \eqref{eqMateq} we get,
+\begin{align}
+\myvec{49&-19&7\\-19&9&-1} &\xleftrightarrow{R_2=R_2+\frac{19}{49}R_1}\myvec{49&-19&7\\0&\frac{80}{49}&\frac{12}{7}}\\
+&\xleftrightarrow{R_1=\frac{1}{49}R_1}\myvec{1&\frac{-19}{49}&\frac{7}{49}\\0&\frac{80}{49}&\frac{12}{7}}\\
+&\xleftrightarrow{R_2=\frac{80}{49}R_2}\myvec{1&\frac{-19}{49}&\frac{7}{49}\\0&1&\frac{21}{20}}\\
+&\xleftrightarrow{R_1=R_1+\frac{19}{49}R_2}\myvec{1&0&\frac{11}{20}\\0&1&\frac{21}{20}}
+\end{align}
+Hence, Solution of \eqref{eqVerify} is given by,
+\begin{align}
+\vec{x}=\myvec{\frac{11}{20}\\\frac{21}{20}}\label{eqX2}
+\end{align}
+Comparing results of $\vec{x}$ from \eqref{eqXSol1} and \eqref{eqX2} we conclude that the solution is verified.
+\end{document}

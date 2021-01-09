@@ -1,0 +1,470 @@
+
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{tkz-euclide} 
+\usepackage{textcomp}
+\usepackage{standalone}
+\usetikzlibrary{calc}
+
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{cleveref}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 8}
+\author{Venkatesh E\\AI20MTECH14005}
+%\title{
+%	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
+%}
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+%\title{Matrix Analysis through Octave}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%\author{<-this % stops a space
+%\thanks{}}
+%}
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+% make the title area
+\maketitle
+\newpage
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+%\renewcommand{\theequation}{\theenumi}
+%\begin{abstract}
+%%\boldmath
+%In this letter, an algorithm for evaluating the exact analytical bit error rate  (BER)  for the piecewise linear (PL) combiner for  multiple relays is presented. Previous results were available only for upto three relays. The algorithm is unique in the sense that  the actual mathematical expressions, that are prohibitively large, need not be explicitly obtained. The diversity gain due to multiple relays is shown through plots of the analytical BER, well supported by simulations. 
+%
+%\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+%\IEEEpeerreviewmaketitle
+\begin{abstract}
+This document explains the concept of finding the conics representation from the given second degree equations 
+\end{abstract}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/venkateshelangovan/IIT-Hyderabad-Assignments/tree/master/Assignment8_Matrix_Theory
+\end{lstlisting}
+%
+\section{Problem}
+%In right triangle ABC, right angled at C, M is
+%the mid-point of hypotenuse AB. C is joined to
+%M and produced to a point D such that DM =
+%CM. Point D is joined to point B. Show that
+%
+%\begin{enumerate}[label = (\alph*)]
+%\item $\triangle  AMC  \cong   \triangle  BMD $
+%\item $\triangle DBC $ is a right angle.
+%\item $\triangle  DBC  \cong  \triangle  ABC $
+%\item $CM = \frac{1}{2} AB$
+%\end{enumerate}
+What conics do the following equation represent? When possible, find the centres and also their equations referred to the centre
+\begin{align}
+12x^2-23xy+10y^2-25x+26y=14\label{ques}
+\end{align}
+
+\section{Solution }
+The given equation \eqref{ques} can be expressed as 
+\begin{align}
+&\vec{x}^T\myvec{12 & \frac{-23}{2}\\\frac{-23}{2} & 10}\vec{x}+2\myvec{\frac{-25}{2} & 13}\vec{x}-14=0\label{given}
+\end{align}
+
+where 
+\begin{align}
+\vec{V}&=\myvec{12 & \frac{-23}{2}\\\frac{-23}{2} & 10}\\
+\vec{u}&=\myvec{\frac{-25}{2} \\ 13}\\
+f&=-14
+\end{align}
+
+\begin{align}
+    \det(\vec{V})&=\begin{array}{|cc|}
+12 & \frac{-23}{2}\\\frac{-23}{2} & 10
+\end{array}\\
+\implies\det(\vec{V})&=\frac{-49}{4}\\
+\implies\det(\vec{V})&<0
+\end{align}
+
+Since $\det(\vec{V})<0$ the given equation \eqref{given} represents the hyperbola
+The characteristic equation of $\vec{V}$ is obtained by evaluating the determinant 
+
+\begin{align}
+       \begin{array}{|c|}
+V-\lambda\vec{I}
+\end{array}&=0\\
+   \begin{array}{|cc|}
+12-\lambda & \frac{-23}{2} \\ \frac{-23}{2} & 10-\lambda
+\end{array}&=0\\
+\implies 4\lambda^2-88\lambda-49&=0\label{eqroots}
+\end{align}
+
+The eigenvalues are the roots of equation \ref{eqroots} is given by 
+\begin{align}
+    \lambda_1&=\frac{22+\sqrt{533}}{2}\label{eqeig1}\\
+    \lambda_2&=\frac{22-\sqrt{533}}{2}\label{eqeig2}
+\end{align}
+
+The eigenvector \vec{p} is defined as 
+\begin{align}
+    \vec{V}\vec{p}&=\lambda\vec{p}\\
+    \implies (\vec{V}-\lambda\vec{I})\vec{p}&=0\label{eqev}
+\end{align}
+
+For $\lambda_1=\frac{22-\sqrt{533}}{2}$ ,
+\begin{align}
+    (\vec{V}-\lambda_1\vec{I})=\myvec{\frac{\sqrt{553}+2}{2} & \frac{-23}{2} \\\frac{-23}{2} & \frac{\sqrt{533}-2}{2}}
+\end{align}
+
+By row reduction , 
+\begin{align}
+    &\myvec{\frac{\sqrt{533}+2}{2} & \frac{-23}{2} \\\frac{-23}{2} & \frac{\sqrt{533}-2}{2}}\\
+    &\xleftrightarrow{R_1=\frac{R_1}{\left(\frac{\sqrt{533}+2}{2}}\right)}\myvec{1 & \frac{2-\sqrt{533}}{23} \\\frac{-23}{2} & \frac{\sqrt{533}-2}{2}}\\
+    &\xleftrightarrow{R_2=R_2+\frac{23}{2}R_1}\myvec{1 & \frac{2-\sqrt{533}}{23} \\0 & 0}\label{eqs1}
+\end{align}
+
+Subsituting equation \ref{eqs1} in equation \ref{eqev} we get
+\begin{align}
+        &\myvec{1 & \frac{2-\sqrt{533}}{23} \\0 & 0}\myvec{v_1 \\ v_2}=\myvec{0 \\ 0}\label{eqei1}
+\end{align}
+Where, $\vec{p}=\myvec{v_1\\v_2}$
+
+Let $v_2=t$
+\begin{align}
+    v_1&=\frac{-t(2-\sqrt{533})}{23}
+\end{align}
+Eigen vector $\vec{p_1}$ is given by
+\begin{align}
+    \vec{p_1}&=\myvec{\frac{-t(2-\sqrt{533})}{23} \\ t}
+\end{align}
+
+Let $t=1$, we get
+\begin{align}
+        \vec{p_1}&=\myvec{\frac{\sqrt{533}-2}{23} \\1 }\label{eqp1}
+\end{align}
+
+For $\lambda_2=\frac{22+\sqrt{533}}{2}$ ,
+\begin{align}
+    (\vec{V}-\lambda_2\vec{I})=\myvec{\frac{2-\sqrt{553}}{2} & \frac{-23}{2} \\\frac{-23}{2} & \frac{-2-\sqrt{533}}{2}}
+\end{align}
+
+By row reduction , 
+\begin{align}
+    &\myvec{\frac{2-\sqrt{533}}{2} & \frac{-23}{2} \\\frac{-23}{2} & \frac{-2-\sqrt{533}}{2}}\\
+    &\xleftrightarrow{R_1=\frac{R_1}{\left(\frac{2-\sqrt{533}}{2}}\right)}\myvec{1 & \frac{2+\sqrt{533}}{23} \\\frac{-23}{2} & \frac{-2-\sqrt{533}}{2}}\\
+    &\xleftrightarrow{R_2=R_2+\frac{23}{2}R_1}\myvec{1 & \frac{2-\sqrt{533}}{23} \\0 & 0}\label{eqs2}
+\end{align} 
+
+Subsituting equation \ref{eqs2} in equation \ref{eqev} we get 
+\begin{align}
+    &\myvec{1 & \frac{2+\sqrt{533}}{23} \\0 & 0}\myvec{v_1 \\ v_2}=\myvec{0 \\ 0}\label{eqei1}
+\end{align}
+Where, $\vec{p}=\myvec{v_1\\v_2}$
+
+Let $v_2=t$
+\begin{align}
+    v_1&=\frac{-t(2+\sqrt{533})}{23}
+\end{align}
+
+Eigen vector $\vec{p_2}$ is given by
+\begin{align}
+        \vec{p_2}&=\myvec{\frac{-t(2+\sqrt{533})}{23} \\ t}
+\end{align}
+
+Let $t=1$, we get 
+\begin{align}
+    \vec{p_2}&=\myvec{\frac{-\sqrt{533}-2}{23} \\1 }\label{eqp2}
+\end{align}
+
+By eigen decompostion $\vec{V}$ can be represented by
+\begin{align}
+    \vec{V}&=\vec{P}\vec{D}\vec{P}^T\label{eqsubs}
+\end{align}
+
+where 
+\begin{align}
+        \vec{P}&=\myvec{\vec{p_1} & \vec{p_2}}\label{eqp}\\
+    \vec{D}&=\myvec{\lambda_1 & 0 \\0 & \lambda_2}\label{eqD}
+\end{align}
+
+Substituting equations \ref{eqp1}, \ref{eqp2} in equation \ref{eqp} we get 
+\begin{align}
+    \vec{P}&=\myvec{\frac{\sqrt{533}-2}{23} & \frac{-\sqrt{533}-2}{23} \\1 & 1}\label{eqP}
+\end{align}
+
+Substituting equations \ref{eqeig1}, \ref{eqeig2} in \ref{eqD} we get
+\begin{align}
+       \vec{D}&=\myvec{\frac{22-\sqrt{533}}{2} & 0\\0 & \frac{22+\sqrt{533}}{2}}\label{eqDD}
+\end{align}
+
+Centre of the hyperbola is given by 
+\begin{align}
+    \vec{c}&=-\vec{V}^{-1}\vec{u}\\
+    \implies\vec{c}&=-\myvec{\frac{-40}{49}&\frac{-46}{49}\\\frac{-46}{49}&\frac{-48}{49}}\myvec{\frac{-25}{2} \\ 13}\\
+    \implies\vec{c}&=\myvec{\frac{40}{49}&\frac{46}{49}\\\frac{46}{49}&\frac{48}{49}}\myvec{\frac{-25}{2} \\ 13}\\
+    \implies\vec{c}&=\myvec{2\\1}
+\end{align}
+
+Since,
+\begin{align}
+    \vec{u}^T\vec{V}^{-1}\vec{u}-f = 26 > 0\label{cond}
+\end{align} 
+there isn't a need to swap axes
+
+In hyperbola,
+\begin{align}
+axes=
+\begin{cases}
+\sqrt{\frac{\vec{u}^T\vec{V}^{-1}\vec{u}-f}{\lambda_1}}\\ \sqrt{\frac{f-\vec{u}^T\vec{V}^{-1}\vec{u}}{\lambda_2}}
+\end{cases}
+\end{align}
+
+From above equations we can say that,
+\begin{align}
+\sqrt{\frac{\vec{u}^T\vec{V}^{-1}\vec{u}-f}{\lambda_1}}=\frac{2\sqrt{13}}{\sqrt{22+\sqrt{533}}}\\
+\sqrt{\frac{f-\vec{u}^T\vec{V}^{-1}\vec{u}}{\lambda_2}}=\frac{2\sqrt{13}}{\sqrt{\sqrt{533}-22}}
+\end{align}
+
+Now \eqref{given} can be written as,
+\begin{align}
+    \vec{y}^T\vec{D}\vec{y}&=\vec{u}^T\vec{V}^{-1}\vec{u}-f\label{fi}
+\end{align}
+
+where ,
+\begin{align}
+    \vec{y}&=\vec{P}^T(\vec{x}-\vec{c})
+\end{align}
+
+To get $\vec{y}$,
+\begin{align}
+\vec{y}&=\vec{P}^T\vec{x}-\vec{P}^T\vec{c}\\
+    \vec{y}&=\myvec{\frac{\sqrt{533}-2}{23} & 1 \\ \frac{-\sqrt{533}-2}{23} & 1}\vec{x}-\myvec{\frac{\sqrt{533}-2}{23} & 1 \\ \frac{-\sqrt{533}-2}{23} & 1}\myvec{2\\1}\\
+    \vec{y}&=\myvec{\frac{\sqrt{533}-2}{23} & 1 \\ \frac{-\sqrt{533}-2}{23} & 1}\vec{x}-\myvec{\frac{2(\sqrt{533}-2)}{23}+1  \\ \frac{2(-\sqrt{533}-2)}{23} + 1}
+\end{align}
+
+Subsituting the eqauations \eqref{cond}, \eqref{eqDD} in equation \eqref{fi}
+\begin{align}
+    \vec{y}^T\myvec{\frac{22+\sqrt{533}}{2} & 0\\0 & \frac{22-\sqrt{533}}{2}}\vec{y}-26&=0
+\end{align}
+\renewcommand{\thefigure}{1}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{Assignment 8.png}
+    \caption{Hyperbola when origin is shifted}
+    \label{Fig :1}
+\end{figure}
+
+The figure \ref{Fig :1} verifies the given equation \eqref{given} as hyperbola with centre $\myvec{2\\1}$
+
+
+\end{document}

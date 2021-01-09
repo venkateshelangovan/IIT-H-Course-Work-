@@ -1,0 +1,415 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{tkz-euclide} 
+\usepackage{textcomp}
+\usepackage{standalone}
+\usetikzlibrary{calc}
+
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{cleveref}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 14}
+\author{Venkatesh E\\AI20MTECH14005}
+\maketitle
+\newpage
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{abstract}
+This document explains the proof such that if $\vec{A}$ is an $m\times n$ matrix and $\vec{B}$ is an $n\times m$ matrix and $n<m$,then $\vec{A}\vec{B}$ is not invertible
+\end{abstract}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/venkateshelangovan/IIT-Hyderabad-Assignments/tree/master/Assignment14_Matrix_Theory
+\end{lstlisting}
+\section{Problem}
+Prove that if  $\vec{A}$ is an $m\times n$ matrix, $\vec{B}$ is an $n\times m$ matrix and $n<m$,then $\vec{A}\vec{B}$ is not invertible
+\section{Rank of a Matrix}
+\subsection{Definition}
+The rank of a matrix is defined as 
+
+1. The maximum number of linearly independent column vectors in the matrix or
+
+2. The maximum number of linearly independent row vectors in the matrix.
+\subsection{To prove Row Rank=Column Rank}
+Consider the matrix $\vec{A}$ of order $m\times n$,  
+
+The row rank is the maximum number of linearly independent rows in the matrix $\vec{A}$
+\begin{align}
+    RowRank(\vec{A}) \leq m \label{rr}
+\end{align}
+The column rank is the maximum number of linearly independent column in the matrix $\vec{A}$
+\begin{align}
+    ColumnRank(\vec{A}) \leq n \label{cr}
+\end{align}
+A matrix $\vec{P_n}$ is a permutation matrix of order $n \times n$ if and only if it is obtained from $n \times n$ Identity matrix $\vec{I_n}$ by performing one or more interchanges of the rows and columns of $\vec{I_n}$.
+
+One of the $3 \times 3$ permutation matrix is given by , 
+\begin{align}
+    \vec{P_3}=\myvec{1 & 0 & 0 \\0 & 0 & 1\\ 0 & 1 & 0}
+\end{align}
+Let $\vec{P_n}$ be an $n \times n$ permuation matrix,
+\begin{align}
+    \vec{A}\vec{P_n}=\myvec{\vec{X}&\vec{W}}\label{p1}
+\end{align}
+where  columns of $\vec{X}$ are the d pivot columns of $\vec{A}$.
+
+Every column of $\vec{W}$ is a linear combination of the columns of $\vec{X}$, so there is a matrix $\vec{K}$ such that,
+\begin{align}
+    \vec{W}=\vec{X}\vec{K}\label{p2}
+\end{align}
+where the columns of $\vec{K}$ contain the coefficients of each of those linear combinations.
+
+Substituting the equation \eqref{p2} in equation \eqref{p1},we get 
+\begin{align}
+    \vec{A}\vec{P_n}&=\myvec{\vec{X} &\vec{X}\vec{K}}\\
+    \implies \vec{A}\vec{P_n}&=\vec{X}\myvec{\vec{I_d}&\vec{K}}\label{p3}
+\end{align}
+where $\vec{I_d}$ represents the $d \times d$ identity matrix
+
+Transforming the matrix $\vec{A}$ into reduced row echelon form, we get ,
+\begin{align}
+    \vec{B}=\vec{E}\vec{A}
+\end{align}
+where $\vec{E}$ is the product of elementary matrices and $\vec{B}$ is the reduced row echelon form of $\vec{A}$
+
+Multiplying $\vec{E}$ to the equation \eqref{p3} on both sides,
+\begin{align}
+    \vec{E}\vec{A}\vec{P_n}&=\vec{E}\vec{X}\myvec{\vec{I_d}&\vec{K}}\\
+    \implies \vec{B}\vec{P_n}&=\vec{E}\vec{X}\myvec{\vec{I_d}&\vec{K}}\label{p5}
+\end{align}
+Where, 
+\begin{align}
+    \vec{E}\vec{X}=\myvec{\vec{I_d}\\0}\label{p4}
+\end{align}
+Substituting the equation \eqref{p4} in equation \eqref{p5},
+\begin{align}
+    \vec{B}\vec{P_n}=\myvec{\vec{I_d} & \vec{K} \\ 0 & 0}
+\end{align}
+Here ,we could see that the nonzero d rows of the reduced row echelon form with the same permutation on the columns as we did for $\vec{A}$.Therefore we could say that, 
+\begin{align}
+    \myvec{\vec{I_d} & \vec{K}}=\vec{Y}\vec{P_n}\label{p6}
+\end{align}
+Substituting the equation \eqref{p6} in equation \eqref{p3},we get ,
+\begin{align}
+    \vec{A}\vec{P_n}=\vec{X}\vec{Y}\vec{P_n}
+\end{align}
+Here $\vec{P_n}$ is a permutation matrix and it is invertible.This implies,
+\begin{align}
+    \vec{A}=\vec{X}\vec{Y}
+\end{align}
+where matrix $\vec{X}$ is of order $m\times d$ and matrix $\vec{Y}$ is of order $d\times n$
+
+Consider the example , 
+\begin{align}
+    \vec{A}&=\myvec{4 & 8 & 9 \\ 2 & 4 & 7}\label{af}\\
+    \vec{A}\vec{P_3}&=\myvec{4 & 9 & 8\\2 & 7 & 4}
+\end{align}
+Let,
+\begin{align}
+    \vec{X}&=\myvec{4 & 9 \\ 2 & 7}\label{xf}\\
+    \vec{W}&=\vec{X}\vec{K}=\myvec{8 \\ 4}\label{w}\\ 
+    \vec{I_2}&=\myvec{1 & 0 \\ 0 & 1}
+\end{align}
+\begin{align}
+    \vec{A}\vec{P_3}&=\myvec{\vec{X} & \vec{W}}\\
+    \vec{A}\vec{P_3}&=\myvec{\vec{X} & \vec{X}\vec{K}}\\
+    \vec{A}\vec{P_3}&=\vec{X}\myvec{\vec{I_2} & \vec{K}}
+\end{align}
+From equation \eqref{w},
+\begin{align}
+    \vec{K}&=\vec{X}^{-1}\vec{W}\\
+    \vec{K}&=\myvec{2 \\0}
+\end{align}
+Let $\vec{B}$ be reduced row echelon form of matrix $\vec{A}$,
+\begin{align}
+\vec{B}&=\myvec{1 & 2 & 0 \\0 & 0 & 1}\\
+\vec{B}\vec{P_n}&=\myvec{1 & 0 & 2 \\ 0 & 1 & 0}
+\end{align}
+Let,
+\begin{align}
+    \myvec{\vec{I_2} & \vec{K}}&=\vec{Y}\vec{P_n}\\
+    \myvec{1 & 0 & 2\\0 & 1 & 0}&=\vec{Y}\myvec{1 & 0 & 0\\0 & 0 &1\\0 & 1 & 0}\\
+    \implies \vec{Y}&=\myvec{1 & 2 & 0 \\0 & 0 & 1}\label{yf}
+\end{align}
+From the above equations \eqref{af},\eqref{xf} and \eqref{yf}, it can be seen that ,
+\begin{align}
+    \vec{A}=\vec{X}\vec{Y}\notag
+\end{align}
+Now for the matrix $\vec{A}$ of order $m \times n$,
+
+Every row of $\vec{A}$ is the linear combination of the rows of $\vec{Y}$
+\begin{align}
+    rowspace(\vec{A})\subsetneq span(\{\vec{Y_1},\vec{Y_2},\dots,\vec{Y_d}\})
+\end{align}
+where $\vec{Y_1},\vec{Y_2},\dots,\vec{Y_d}$ were the rows of $\vec{Y}$
+
+The dimension of the row space is atmost d
+
+Every column of $\vec{A}$ is the linear combination of the columns of $\vec{X}$
+\begin{align}
+    columnspace(\vec{A})\subsetneq span(\{\vec{X_1},\vec{X_2},\dots,\vec{X_d}\})
+\end{align}
+where $\vec{X_1},\vec{X_2},\dots,\vec{X_d}$ were the columns of $\vec{X}$
+
+The dimension of the column space is atmost d.
+
+Let $\vec{A}$ is of the order $m \times n$. If the dimension of the row space of $\vec{A}$ is r(Row Rank),then $\vec{A}=\vec{X}\vec{Y}$ for some $m \times r$ matrix $\vec{X}$ and $r \times m$ matrix $\vec{Y}$
+
+Let $\vec{Y_1},\vec{Y_2},\dots,\vec{Y_r}$ be a basis for the row space of $\vec{A}$ and let $\vec{A_1},\vec{A_2},\dots,\vec{A_m}$ be the rows of $\vec{A}$.Then,
+\begin{align}
+    \vec{A_1}&=x_{11}\vec{Y_1}+x_{12}\vec{Y_2}+\dots+x_{1r}\vec{Y_r}\notag \\
+\vec{A_2}&=x_{21}\vec{Y_1}+x_{22}\vec{Y_2}+\dots+x_{2r}\vec{Y_r}\notag \\
+&\vdots \notag\\
+\vec{A_m}&=x_{m1}\vec{Y_1}+x_{m2}\vec{Y_2}+\dots+x_{mr}\vec{Y_r}\notag 
+\end{align}
+Thus $\vec{A}=\vec{X}\vec{Y}$ where $\vec{Y}$ is the matrix with rows $\vec{Y_1},\dots,\vec{Y_r}$ and $\vec{X}$ is the matrix of coefficients $\vec{X}(i,j)=x_{ij}$.
+\begin{align}
+Column Rank \leq Row Rank \label{eqcr}
+\end{align}
+Let $\vec{X_1},\vec{X_2},\dots,\vec{X_r}$ be a basis for the column space of $\vec{A}$ and let $\vec{A_1},\vec{A_2},\dots,\vec{A_n}$ be the columns of $\vec{A}$.Then,
+\begin{align}
+    \vec{A_1}&=\vec{X_1}y_{11}+\vec{X_2}y_{21}+\dots+\vec{X_r}y_{r1}\notag \\
+\vec{A_2}&=\vec{X_1}y_{12}+\vec{X_2}y_{22}+\dots+\vec{X_r}y_{r2}\notag \\
+&\vdots \notag\\
+\vec{A_n}&=\vec{X_1}y_{1n}+\vec{X_2}y_{2n}+\dots+\vec{X_r}y_{rn}\notag 
+\end{align}
+Thus $\vec{A}=\vec{X}\vec{Y}$ where $\vec{X}$ is the matrix with columns $\vec{X_1},\dots,\vec{X_r}$ and $\vec{Y}$ is the matrix of coefficients $\vec{Y}(i,j)=y_{ij}$.
+\begin{align}
+Row Rank \leq Column Rank \label{eqcr2}
+\end{align}
+From equations \eqref{eqcr} and \eqref{eqcr2},we get , 
+\begin{align}
+    Row Rank = Column Rank \label{rank}
+\end{align}
+From the rank definition and the above equations \eqref{rr},\eqref{cr} and \eqref{rank},
+\begin{align}
+    Rank(\vec{A})\leq min(m,n)\label{main}
+\end{align}
+\subsection{Properties}
+For a matrix $\vec{A}$ of order $m\times n$,
+
+(a) If m is less than n, then the rank of the matrix will be atmost m.
+
+(b) If m is greater than n, then the rank of the matrix will be atmost n.
+
+\section{Proof}
+Given , 
+Matrix $\vec{A}$ is of order $m \times n$ and 
+Matrix $\vec{B}$ is of order $n \times m$
+\begin{align}
+n<m 
+\end{align}
+From equation \eqref{main},since given $n<m$,
+\begin{align}
+    Rank(\vec{A})\leq n\\
+    Rank(\vec{B})\leq n
+\end{align}
+$\vec{A}^T$ will be of order $n \times m$
+
+From equation \eqref{main},
+\begin{align}
+    Rank(\vec{A}^T) &\leq min(n,m) \\
+    \implies Rank(\vec{A}^T) &= Rank(\vec{A})\label{eq}
+\end{align}
+The maximum possible rank of $\vec{A}$ and $\vec{B}$ is given by 
+\begin{align}
+    Rank(\vec{A})&=n\label{a}\\
+    Rank(\vec{B})&=n\label{2}
+\end{align}
+$\vec{A}\vec{B}$ will be of order $m \times m$
+
+Consider a vector $\vec{v}$,
+\begin{align}
+\vec{v} &\in col(\mathbf(\vec{A}\vec{B}))\label{11}\\
+\vec{v}&=(\vec{A}\vec{B})\vec{x}\\
+\vec{v}&=\vec{A}(\vec{B}\vec{x})\\
+\vec{v} &\in col(\mathbf(\vec{A}))\label{12}
+\end{align}
+From equations \eqref{11} and \eqref{12},we could say that for every vector in the column space of $\vec{A}\vec{B}$ the same vector will be there in column space of $\vec{A}$ aswell.
+\begin{align}
+    Rank(\vec{A}\vec{B})&\leq Rank(\vec{A})\label{f1}
+\end{align}
+From equation \eqref{eq},
+\begin{align}
+ Rank(\vec{A}\vec{B})&=Rank((\vec{A}\vec{B})^T)\\
+\implies Rank((\vec{A}\vec{B})^T)&=Rank(\vec{B}^T\vec{A}^T)
+\end{align}
+From equation \eqref{f1},
+\begin{align}
+    \implies Rank(\vec{B}^T\vec{A}^T)&\leq Rank(\vec{B}^T)\\
+\implies Rank(\vec{B}^T\vec{A}^T)&\leq Rank(\vec{B})\\
+\implies Rank(\vec{A}\vec{B})&\leq Rank(\vec{B})\label{f2}
+\end{align}
+From the equations \eqref{f1} and \eqref{f2},
+\begin{align}
+    Rank(\vec{A}\vec{B})&\leq min(Rank(\vec{A}),Rank(\vec{B}))\\
+    Rank(\vec{A}\vec{B})&\leq n
+\end{align}
+The maximum possible rank of $\vec{A}\vec{B}$ of order $m\times m$ is given by 
+\begin{align}
+    Rank(\vec{A}\vec{B})= n < m\label{final}
+\end{align}
+From \eqref{final} we could say that $\vec{A}\vec{B}$ does not have a full rank and if the matrix does not have a full rank then it is not invertible.Hence, $\vec{A}\vec{B}$ is not invertible.
+\begin{center}
+    Hence Proved
+\end{center}
+\end{document}
+

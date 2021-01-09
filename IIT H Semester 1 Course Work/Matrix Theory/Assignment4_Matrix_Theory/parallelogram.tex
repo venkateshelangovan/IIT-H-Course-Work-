@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+\usepackage{tikz,pgf} %and any other packages or tikzlibraries your picture needs
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\draw (0,0) node[anchor=north]{$B$}
+  -- (2,4) node[anchor=east]{$D$}
+  -- (6,4) node[anchor=west]{$F$}
+  -- (4,0) node[anchor=north]{$E$}
+  -- cycle;
+ \draw (2,4) 
+  -- (4,0) 
+  -- cycle;
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,476 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{tkz-euclide} 
+\usepackage{textcomp}
+\usepackage{standalone}
+\usetikzlibrary{calc}
+
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+%\usepackage{iithtlc}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+%\usepackage{stmaryrd}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+\usepackage{amsmath}
+\usepackage{cleveref}
+%\usepackage{enumerate}
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+%\lstset{
+%language=tex,
+%frame=single, 
+%breaklines=true
+%}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
+\begin{document}
+%
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+%\newtheorem{thm}{Theorem}[section] 
+%\newtheorem{defn}[thm]{Definition}
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 6}
+\author{Venkatesh E\\AI20MTECH14005}
+%\title{
+%	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
+%}
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+%\title{Matrix Analysis through Octave}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%\author{<-this % stops a space
+%\thanks{}}
+%}
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+% make the title area
+\maketitle
+\newpage
+%\tableofcontents
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+%\renewcommand{\theequation}{\theenumi}
+%\begin{abstract}
+%%\boldmath
+%In this letter, an algorithm for evaluating the exact analytical bit error rate  (BER)  for the piecewise linear (PL) combiner for  multiple relays is presented. Previous results were available only for upto three relays. The algorithm is unique in the sense that  the actual mathematical expressions, that are prohibitively large, need not be explicitly obtained. The diversity gain due to multiple relays is shown through plots of the analytical BER, well supported by simulations. 
+%
+%\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+%\IEEEpeerreviewmaketitle
+\begin{abstract}
+This document explains the the concept of finding the angle between the two straight lines from given second degree equation 
+\end{abstract}
+Download all latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/venkateshelangovan/IIT-Hyderabad-Assignments/tree/master/Assignment6_Matrix_Theory
+\end{lstlisting}
+%
+\section{Problem}
+%In right triangle ABC, right angled at C, M is
+%the mid-point of hypotenuse AB. C is joined to
+%M and produced to a point D such that DM =
+%CM. Point D is joined to point B. Show that
+%
+%\begin{enumerate}[label = (\alph*)]
+%\item $\triangle  AMC  \cong   \triangle  BMD $
+%\item $\triangle DBC $ is a right angle.
+%\item $\triangle  DBC  \cong  \triangle  ABC $
+%\item $CM = \frac{1}{2} AB$
+%\end{enumerate}
+Prove that the equation $12x^2+7xy-10y^2+13x+45y-35=0$ represents two straight lines and find the angle between them 
+\section{Pair of staraight lines}
+The general second order equation is given by ,
+\begin{align}
+    ax^2+2bxy+cy^2+2dx+2ey+f&=0\label{eqmain}
+    \intertext{the above equation \ref{eqmain} can be expressed as}
+    \vec{x}^T\vec{V}\vec{x}+2\vec{u}^T\vec{x}+f&=0 \label{eq1}
+    \intertext{where}
+    \vec{V}=\vec{V}^T&=\myvec{a & b \\ b & c}\label{eq2}\\
+    \vec{u}&=\myvec{d \\ e}\label{eq3}
+    \intertext{the above equation \ref{eq1} represents a pair of straight lines if}
+    \begin{array}{|cc|}
+\vec{V} & \vec{u}\\\vec{u}^T & f
+\end{array}&=0\label{eqcheck}
+\end{align}
+\section{Solution}
+Given,
+\begin{align}
+    12x^2+7xy-10y^2+13x+45y-35&=0 \label{eqgiven}
+\end{align}
+The above equation \ref{eqgiven} can be expressed as shown in equations \ref{eq1}, \ref{eq2}, \ref{eq3}
+\begin{align}
+    \vec{x}^T\myvec{12 & \frac{7}{2} \\\frac{7}{2} & -10}\vec{x}+2\myvec{\frac{13}{2} & \frac{45}{2}}\vec{x}-35&=0 \label{eqc}
+\end{align}
+\begin{align}
+        \intertext{Comparing equation \ref{eqc} with \ref{eq1} we get}
+    \vec{V}=\vec{V}^T&=\myvec{12 & \frac{7}{2}\\\frac{7}{2} &-10}\label{eqv}\\
+    \vec{u}&=\myvec{\frac{13}{2} \\ \frac{45}{2}}\label{equ}\\
+    f&=-35\label{eqfv}
+\end{align}
+Substituting the above equations \ref{eqv}, \ref{equ}, \ref{eqfv} in LHS of equation \ref{eqcheck} to verify the given equation is pair of straight lines
+\begin{align}
+\delta&=\begin{array}{|ccc|}
+12 &\frac{7}{2}& \frac{13}{2}\\\frac{7}{2} & -10 & \frac{45}{2}\\ \frac{13}{2} & \frac{45}{2} & -35
+\end{array}&
+\intertext{Expanding the above determinant , 
+we get}
+\delta&=0
+\end{align}
+Since equation \ref{eqcheck} is satisfied, we could say that the given equation \ref{eqgiven} represents two straight lines
+
+From equation \ref{eqgiven} 
+
+Consider , 
+\begin{align}
+    &\hspace{1cm}12x^2+7xy-10y^2\\
+    &\implies 12x^2+15xy-8xy-10y^2\\
+    &\implies 3x(4x+5y)-2y(4x+5y)\\
+    &\implies (3x-2y)(4x+5y)
+    \intertext{where }
+    &\vec{V}=\myvec{12 & \frac{7}{2} \\ \frac{7}{2} & -10}\label{eqV}
+\end{align}
+The characteristic equation of $\vec{V}$ is obtained by evaluating the determinant 
+\begin{align}
+       \begin{array}{|c|}
+\lambda\vec{I}-V 
+\end{array}&=0\\
+   \begin{array}{|cc|}
+\lambda-12 & \frac{7}{2} \\ \frac{7}{2} & \lambda+10
+\end{array}&=0\\
+\implies 4\lambda^2-8\lambda-529&=0\label{eqroots}
+\end{align}
+The eigenvalues are the roots of equation \ref{eqroots} is given by 
+\begin{align}
+    \lambda_1&=1-\frac{\sqrt{153}}{2}\label{eqeig1}\\
+    \lambda_2&=1+\frac{\sqrt{153}}{2}\label{eqeig2}
+\end{align}
+The eigenvector \vec{p} is defined as 
+\begin{align}
+    \vec{V}\vec{p}&=\lambda\vec{p}\\
+    \implies (\lambda\vec{I}-\vec{V})\vec{p}&=0\label{eqev}
+\end{align}
+For $\lambda_1=1-\frac{\sqrt{153}}{2}$ ,
+\begin{align}
+    (\lambda_1\vec{I}-\vec{V})=\myvec{-11-\frac{\sqrt{153}}{2} & \frac{7}{2} \\\frac{7}{2} & 11-\frac{\sqrt{153}}{2}}
+\end{align}
+By row reduction , 
+\begin{align}
+    &\myvec{-11-\frac{\sqrt{153}}{2} & \frac{7}{2} \\\frac{7}{2} & 11-\frac{\sqrt{153}}{2}}\\
+    &\xleftrightarrow{R_2=R_2-\left(\frac{7}{2\left(-11-\frac{\sqrt{153}}{2}}\right)\right)R_1}\myvec{-11-\frac{\sqrt{153}}{2} & \frac{7}{2} \\0 & 0}\\
+    &\xleftrightarrow{R_1=\frac{R_1}{\left(-11-\frac{\sqrt{153}}{2}}\right)}\myvec{1 & \frac{7}{2\left(-11-\frac{\sqrt{153}}{2}}\right) \\0 & 0}\label{eqs1}
+    \intertext{Subsituting equation \ref{eqs1} in equation \ref{eqev} we get }
+    &\myvec{1 & \frac{7}{2\left(-11-\frac{\sqrt{153}}{2}}\right) \\0 & 0}\myvec{v_1 \\ v_2}=\myvec{0 \\ 0}\label{eqei1}
+\end{align}
+Where, $\vec{p}=\myvec{v_1\\v_2}$
+\begin{align}
+    \intertext{Let v_2=t}
+    v_1&=\frac{-7t}{2\left(-11-\frac{\sqrt{153}}{2}}\right)
+    \intertext{On solving further we get }
+    v_1&=\frac{(\sqrt{153}-22)t}{7}
+    \intertext{Eigen vector $\vec{p_1}$ is given by}
+    \vec{p_1}&=\myvec{\frac{(\sqrt{153}-22)t}{7} \\ t}
+    \intertext{Let $t=1$, we get }
+    \vec{p_1}&=\myvec{\frac{\sqrt{153}-22}{7} \\1 }\label{eqp1}
+\end{align}
+For $\lambda_2=1+\frac{\sqrt{153}}{2}$ ,
+\begin{align}
+    (\lambda_2\vec{I}-\vec{V})=\myvec{-11+\frac{\sqrt{153}}{2} & \frac{7}{2} \\\frac{7}{2} & 11+\frac{\sqrt{153}}{2}}
+\end{align}
+By row reduction , 
+\begin{align}
+    &\myvec{-11+\frac{\sqrt{153}}{2} & \frac{7}{2} \\\frac{7}{2} & 11+\frac{\sqrt{153}}{2}}\\
+    &\xleftrightarrow{R_2=R_2-\left(\frac{7}{2\left(-11+\frac{\sqrt{153}}{2}}\right)\right)R_1}\myvec{-11+\frac{\sqrt{153}}{2} & \frac{7}{2} \\0 & 0}\\
+    &\xleftrightarrow{R_1=\frac{R_1}{\left(-11+\frac{\sqrt{153}}{2}}\right)}\myvec{1 & \frac{7}{2\left(-11+\frac{\sqrt{153}}{2}}\right) \\0 & 0}\label{eqs1}
+    \intertext{Subsituting equation \ref{eqs1} in equation \ref{eqev} we get }
+    &\myvec{1 & \frac{7}{2\left(-11+\frac{\sqrt{153}}{2}}\right) \\0 & 0}\myvec{v_1 \\ v_2}=\myvec{0 \\ 0}\label{eqei1}
+\end{align}
+Where, $\vec{p}=\myvec{v_1\\v_2}$
+\begin{align}
+    \intertext{Let v_2=t}
+    v_1&=\frac{-7t}{2\left(-11+\frac{\sqrt{153}}{2}}\right)
+    \intertext{On solving further we get }
+    v_1&=\frac{-t(\sqrt{153}+22)}{7}
+    \intertext{Eigen vector $\vec{p_2}$ is given by}
+    \vec{p_2}&=\myvec{\frac{-t(\sqrt{153}+22)}{7} \\ t}
+    \intertext{Let $t=1$, we get }
+    \vec{p_2}&=\myvec{\frac{-(\sqrt{153}+22)}{7} \\1 }\label{eqp2}
+\end{align}
+By eigen decompostion $\vec{V}$ can be represented by
+\begin{align}
+    \vec{V}&=\vec{P}\vec{D}\vec{P}^T\label{eqsubs}
+    \intertext{where }
+    \vec{P}&=\myvec{\vec{p_1} & \vec{p_2}}\label{eqp}\\
+    \vec{D}&=\myvec{\lambda_1 & 0 \\0 & \lambda_2}\label{eqD}
+    \intertext{Substituting equations \ref{eqp1}, \ref{eqp2} in equation \ref{eqp} we get }
+    \vec{P}&=\myvec{\frac{\sqrt{153}-22}{7} & \frac{-(\sqrt{153}+22)}{7} \\1 & 1}\label{eqP}
+    \intertext{Substituting equations \ref{eqeig1}, \ref{eqeig2} in \ref{eqD} we get}
+    \vec{D}&=\myvec{1-\frac{\sqrt{153}}{2} & 0\\0 & 1+\frac{\sqrt{153}}{2}}\label{eqDD}
+\end{align}
+Substitute the equations \ref{eqV}, \ref{eqP}, \ref{eqDD} in equation \ref{eqsubs} we get
+\begin{align}
+        \myvec{12 & \frac{7}{2}\\ \frac{7}{2} & -10}&=\myvec{\frac{\sqrt{153}-22}{7} & \frac{-(\sqrt{153}+22)}{7} \\1 & 1}\notag \\&\myvec{1-\frac{\sqrt{153}}{2} & 0\\0 & 1+\frac{\sqrt{153}}{2}}\myvec{\frac{\sqrt{153}-22}{7} & 1 \\\frac{-(\sqrt{153}+22)}{7} & 1}
+\end{align}
+Therefore equation \ref{eqgiven} can be modified as 
+\begin{align}
+(3x-2y+l)(4x+5y+m)&=0\label{eqlines}
+\end{align}
+Expanding the above equation \ref{eqlines} we get 
+\begin{multline}
+12x^2 + 7xy -10y^2 + (3m+4l)x\\ 
++(-2m+5l)y+lm=0\label{eqeq}
+\end{multline}
+Equating x and y co-efficients of the equations \ref{eqgiven} and \ref{eqeq} , we get ,
+\begin{align}
+    3m+4l&=13\label{eqlm1}\\
+    -2m+5l&=45\label{eqlm2}
+    \intertext{Solving equations \ref{eqlm1}, \ref{eqlm2} we get ,}
+    l&=7\label{eql}\\
+    m&=-5\label{eqm}
+    \intertext{Substituting the equations \ref{eql}, \ref{eqm} in \ref{eqlines} we get}
+    (3x-2y+7)(4x+5y-5)&=0\label{eqsl}
+\end{align}
+The above equation \ref{eqsl} represents two straights and straight line equation is given by 
+\begin{align}
+    3x-2y+7&=0\label{eqline1}\\
+    4x+5y-5&=0\label{eqline2}
+\end{align}
+
+\renewcommand{\thefigure}{1}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\columnwidth]{assignment 6.png}
+    \caption{Pair of straight lines}
+    \label{Fig :1}
+\end{figure}
+The above figure \ref{Fig :1} represents the pair of straight lines
+\section{Angle between the straight lines}
+From equation \ref{eqline1}
+\begin{align}
+    \intertext{Normal Vector $\vec{n_1}$ is given by}
+    \vec{n_1}=\myvec{3\\-2}
+    \intertext{From equation \ref{eqline2}}
+    \intertext{Normal Vector $\vec{n_2}$ is given by}
+    \vec{n_2}=\myvec{4\\5}
+\end{align}
+Angle between the two straight lines is given by 
+\begin{align}
+    \theta&=\cos^{-1}\biggl(\frac{\vec{n_1}^T\vec{n_2}}{\norm{\vec{n_1}}\norm{\vec{n_2}}}\biggr)\label{eqt}\label{eqtheta}\\
+    \vec{n_1}^T\vec{n_2}&=\myvec{3 & -2}\myvec{4\\5}=2\label{eqtr}\\
+    \norm{\vec{n_1}}&=\sqrt{3^2+(-2)^2}=\sqrt{13}\label{eqnorm1}\\
+    \norm{\vec{n_2}}&=\sqrt{4^2+5^2}=\sqrt{41}\label{eqnorm2}
+\end{align}
+Substituting equations \ref{eqtr}, \ref{eqnorm1} ,\ref{eqnorm2} in equation \ref{eqtheta}, we get 
+\begin{align}
+        \theta&=\cos^{-1}\biggl(\frac{2}{\sqrt{13}\sqrt{41}}\biggr)\\
+        \theta&=85^{\circ}
+\end{align}
+
+$\boldsymbol{ Result : }$
+
+Angle between the two straight line is given by
+\begin{align}
+    \theta&=85^{\circ}
+\end{align}
+
+
+%\subsection{Sol.a)}
+%\input{./chapters/sol_a.tex}
+%\subsection{Sol.b)}
+%\input{./chapters/sol_b.tex}
+%\subsection{Sol.c)}
+%\input{./chapters/sol_c.tex}
+%\subsection{Sol.d)}
+%\input{chapters/sol_d.tex}
+\end{document}
