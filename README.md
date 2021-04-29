@@ -1,6 +1,6 @@
-Leetcode Solution : 
+# Leetcode Solution : 
 
-Programming Language - $Python$ 
+## Programming Language - Python$
 
 [ARRAY](https://leetcode.com/tag/array/)
 
