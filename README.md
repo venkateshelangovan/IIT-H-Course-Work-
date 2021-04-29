@@ -2,7 +2,7 @@
 
 ## Programming Language - Python
 
-### [ARRAY](https://leetcode.com/tag/array/){:target="_blank"}
+### [ARRAY](https://leetcode.com/tag/array/){:target="_blank" rel="noopener"}
 
 |        Problem           | Difficulty Level | Time Complexity | Space Complexity | Solution |
 |--------------------------|------------|-----------------|------------------|----------|
